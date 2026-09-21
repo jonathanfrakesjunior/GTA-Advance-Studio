@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTA Advance Studio</title>
+<link rel="stylesheet" href="css/studio.css">
+</head>
+<body>
+
+<header id="top">
+  <div class="brand">
+    <span class="logo">GTA</span>
+    <span class="name">Advance&nbsp;Studio</span>
+    <span class="ver">1.0</span>
+  </div>
+  <div class="topbtns">
+    <span id="langHost"></span>
+    <button id="btnLoadRom" class="primary">ROM laden</button>
+    <button id="btnProject">Projekt</button>
+    <button id="btnSaveRom">ROM speichern</button>
+  </div>
+</header>
+
+<div id="shell">
+  <nav id="nav"></nav>
+  <main id="view"></main>
+</div>
+
+<footer id="status">Keine ROM geladen</footer>
+
+<div id="toast"></div>
+
+<div id="busy"><div class="busybox">
+  <div id="busyText">Bitte warten ...</div>
+  <div class="bar"><div id="busyBar"></div></div>
+</div></div>
+
+<div id="modal"><div id="modalBox"></div></div>
+
+<script src="js/core.js"></script>
+<script src="js/i18n.js"></script>
+<script src="data/lang.js"></script>
+<script src="data/lang2.js"></script>
+<script src="js/app.js"></script>
+<script src="js/gfx_scan.js"></script>
+<script src="data/tiles1.js"></script>
+<script src="data/tiles2.js"></script>
+<script src="data/tiles3.js"></script>
+<script src="js/tab_start.js"></script>
+<script src="js/tab_rom.js"></script>
+<script src="js/tab_bulk.js"></script>
+<script src="js/tab_gfx.js"></script>
+<script src="js/tab_menu.js"></script>
+<script src="js/tab_tex.js"></script>
+<script src="js/tab_font.js"></script>
+<script src="js/tab_map.js"></script>
+<script src="js/tab_text.js"></script>
+<script src="js/tab_sound.js"></script>
+<script src="js/tab_mission.js"></script>
+<script src="js/tab_hex.js"></script>
+</body>
+</html>
