@@ -197,8 +197,6 @@ The modded ROM should always be tested in an emulator before use on real hardwar
 Use your own legally obtained copy of the game. The original ROM is never modified in memory; changes are written only when saving a project or creating a new ROM.
 
 
-or replace this section with the license terms applicable to the project.
-
 ---
 
 **GTA Advance Studio** — browser-based modding tools for
