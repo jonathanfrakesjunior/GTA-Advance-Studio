@@ -1,741 +1,608 @@
 # GTA Advance Studio
 
-A browser-based modding tool for **Grand Theft Auto Advance (Game Boy Advance, European version)**.
+**Languages:** [Deutsch](LIESMICH.md) · English · [Español](LEEME.md) · [Français](LISEZMOI.md) · [Italiano](LEGGIMI.md)
 
-Runs entirely in the browser with **no installation, server, Python, dependencies, or internet connection required**.
+Modding tool for *Grand Theft Auto Advance* (Game Boy Advance, European version).
+Runs in the browser without installation: **double-click `index.html`** (or
+`GTA Advance Studio starten.bat`). No server, no Python, no internet connection needed.
 
-## Features
-
-* **ROM & Project management**
-
-  * Open and save ROMs
-  * Save changes as `.gtastudio` projects
-  * Expand ROMs from 16 MB to 32 MB
-  * Automatic header checksum recalculation
-  * IPS / IPS32 patch creation
-
-* **Complete Package**
-
-  * Export and import all editable data as a ZIP
-  * Approximately 3,550 files / 6 MB
-  * Supports sprites, graphics, textures, maps, fonts, sounds, texts, and missions
-  * Individual files can also be imported directly
-
-* **Sprites**
-
-  * 2,475 sprites
-  * PNG export/import
-  * Palette editing
-  * Automatic relocation when imported graphics no longer fit
-  * Duplicate sprite groups are updated automatically
-
-* **Menu Graphics**
-
-  * 116 editable images
-  * Title screen, logos, cutscenes, portraits, briefing boards, and icons
-  * Indexed PNG import/export
-  * Automatic tilemap reconstruction
-
-* **World Textures**
-
-  * 640 city textures
-  * Supports rooftops, facades, roads, parking lots, pools, and more
-
-* **Map Editor**
-
-  * All three islands
-  * Tiles, collision, and height layers
-  * Pencil, line, rectangle, fill, eyedropper, selection, and move tools
-  * Undo/redo, copy/paste, grid, zoom, and overview map
-  * Editable objects and zones
-
-* **Text Editor**
-
-  * 13,775 pointer-reachable strings
-  * Five-language mission dialog support
-  * Search and replace
-  * CSV export/import
-  * Automatic relocation of longer texts and pointer updates
-
-* **Sound**
-
-  * 282 PCM samples
-  * WAV export/import
-  * Browser playback and waveform display
-  * Automatic conversion of imported WAV files
-
-* **Missions & Objects**
-
-  * 18 discovered tables
-  * 1,081 mission instances
-  * 798 briefings
-  * 565 events
-  * 337 vehicle entries
-  * 228 start points
-  * CSV export
-
-* **Hex / Raw Data Editor**
-
-  * Direct ROM access
-  * Hex and text search
-  * Bookmarks for known structures
-  * Arbitrary range import/export
-
-## Getting Started
-
-You can start using GTA Advance Studio in about 30 seconds:
-
-1. Download the project as a ZIP.
-2. Open `index.html`, or run `Start GTA Advance Studio.bat`.
-3. Load your own legally created copy of the **European GTA Advance ROM**.
-4. Choose a section from the left-hand navigation.
-5. Edit the desired data.
-6. Save your work as a `.gtastudio` project or create a new `.gba` ROM.
-7. Test modified ROMs in an emulator such as **mGBA**.
-8. To distribute a modification, create an IPS patch under **ROM & Project**.
-
-### Browser Support
-
-Tested with:
-
-* Chrome
-* Edge
-* Firefox
-
-No server or internet connection is required.
-
-## ROM Compatibility
-
-The expected original ROM is:
-
-```text
-SHA-1: 06230842626da504f92396074f7c655e100f5d44
-Size:  16 MB
-```
-
-Other versions can be loaded, but hardcoded addresses may differ. The Studio warns when a different ROM is detected.
-
-## IPS Patching
-
-GTA Advance Studio can create patches containing only the differences between the original and modified ROM.
-
-The standard IPS format is used for normal ROMs. If the ROM has been expanded to 32 MB, Studio automatically creates an **IPS32** patch. A self-check applies the generated patch to the original ROM and verifies that the result matches the edited ROM exactly.
-
-This allows mods to be distributed **without distributing the original ROM**.
-
-## Languages
-
-The interface supports:
-
-* Deutsch
-* English
-* Español
-* Français
-* Italiano
-
-The selected language is remembered by the browser. On first launch, the system language is used when supported.
-
-## Project Structure
-
-```text
-index.html
-css/
-└── studio.css
-
-js/
-├── core.js
-├── app.js
-├── i18n.js
-├── gfxscan.js
-├── tabbulk.js
-├── tabmenu.js
-├── tabfont.js
-└── tab.js
-
-data/
-├── lang.js
-├── lang2.js
-└── tiles1..3.js
-```
-
-The project is written entirely in JavaScript with **no dependencies and no network access**.
-
-## Testing
-
-The project has been tested extensively against the original ROM, including:
-
-* Graphics round-trips
-* PNG import/export
-* WAV import/export
-* Menu graphics reconstruction
-* Text relocation and pointer updates
-* Map writing
-* Project export/import
-* Complete package export/import
-* Font round-trips
-* World palette verification
-* IPS and IPS32 patch generation
-* All five interface languages
-
-The modded ROM should always be tested in an emulator before use on real hardware. Real-hardware behavior has not been tested.
-
-## Known Bugs
-
-* 116 sprites do not have a clearly identifiable palette.
-* Character-code-to-glyph mapping is implemented in program code rather than stored in a ROM table.
-* Some ROM regions contain geometry/pointer data rather than graphics.
-* Object and zone lists cannot be extended with additional entries.
-* Numeric mission-record fields are not fully documented.
-* The 3D-like building/block model system is currently accessible only through the Hex Editor.
-* Some interface translations may still contain German text or non-native phrasing.
-* Menu graphics may change tile order during import, making byte-for-byte comparison with the original unsuitable.
-
-## Important
-
-**GTA Advance Studio does not include or distribute the original GTA Advance ROM.**
-
-Use your own legally obtained copy of the game. The original ROM is never modified in memory; changes are written only when saving a project or creating a new ROM.
-
-
-# GTA Advance Studio
-
-**Sprachen:** Deutsch · [English](README.md) · [Español](LEEME.md) · [Français](LISEZMOI.md) · [Italiano](LEGGIMI.md)
-
-Mod-Werkzeug für *Grand Theft Auto Advance* (Game Boy Advance, Europe-Fassung).
-Läuft ohne Installation im Browser: **`index.html` doppelklicken** (oder
-`GTA Advance Studio starten.bat`). Kein Server, kein Python, keine Internetverbindung nötig.
-
-Getestet mit Chrome, Edge und Firefox.
+Tested with Chrome, Edge and Firefox.
 
 ---
 
-## In 30 Sekunden loslegen
+## Get started in 30 seconds
 
-1. `index.html` öffnen.
-2. **ROM laden** – deine eigene, legal erstellte Kopie von *Grand Theft Auto Advance (Europe)*.
-   Die Datei kann auch einfach ins Fenster gezogen werden.
-3. Links den Bereich wählen und bearbeiten.
-4. Unter **ROM & Projekt** das Projekt speichern (`.gtastudio`) – das sichert nur deine Änderungen.
-5. **ROM speichern** erzeugt die fertige `.gba`. Vorher immer im Emulator (z. B. mGBA) testen.
-   Zum Weitergeben eines Mods: **IPS-Patch erstellen** (unter ROM & Projekt).
+1. Open `index.html`.
+2. **Load ROM** – your own, legally dumped copy of *Grand Theft Auto Advance (Europe)*.
+   You can also simply drag the file into the window.
+3. Pick an area on the left and edit.
+4. Save the project (`.gtastudio`) under **ROM & project** – it only stores your changes.
+5. **Save ROM** creates the finished `.gba`. Always test it in an emulator (e.g. mGBA) first.
+   To share a mod: **Create IPS patch** (under ROM & project).
 
-**Sprache:** Oben rechts lässt sich die Oberfläche auf Deutsch, English, Español,
-Français oder Italiano umstellen – die fünf Sprachen, die auch die ROM enthält.
-Die Wahl wird im Browser gemerkt; beim ersten Start gilt die Systemsprache.
+**Language:** The interface can be switched to Deutsch, English, Español, Français or
+Italiano at the top right – the five languages the ROM itself contains. The choice is
+remembered by the browser; on first start the system language is used.
 
-Die Original-ROM wird nie verändert. Alle Änderungen leben im Arbeitsspeicher,
-bis du sie als neue ROM oder als Projektdatei sicherst.
+The original ROM is never modified. All changes live in memory until you save them as
+a new ROM or as a project file.
 
-Erwartete Original-ROM: SHA-1 `06230842626da504f92396074f7c655e100f5d44`, 16 MB.
-Andere Fassungen werden geladen, aber fest hinterlegte Adressen können abweichen –
-das Studio warnt in dem Fall.
+Expected original ROM: SHA-1 `06230842626da504f92396074f7c655e100f5d44`, 16 MB.
+Other versions can be loaded, but hard-coded addresses may differ – the studio warns
+you in that case.
 
 ---
 
-## Die Bereiche
+## The areas
 
-### ROM & Projekt
-Kopfdaten, Prüfsumme, freier Speicher, Änderungsliste. Projekt speichern/öffnen,
-ROM auf 32 MB erweitern (für große Umbauten), alles zurücksetzen.
-Die Kopf-Prüfsumme wird beim Speichern automatisch neu berechnet.
+### ROM & project
+Header data, checksum, free space, list of changes. Save/open projects, expand the
+ROM to 32 MB (for large conversions), reset everything. The header checksum is
+recalculated automatically on saving.
 
-**Mod als IPS-Patch:** *IPS-Patch erstellen* speichert nur die Unterschiede zur
-Original-ROM als `.ips`. So lässt sich ein Mod weitergeben, ohne die ROM selbst zu
-verteilen – andere wenden den Patch mit einem üblichen Patcher (z. B. Lunar IPS,
-Floating IPS, RomPatcher.js) auf ihre eigene Kopie an. Details:
+**Mod as IPS patch:** *Create IPS patch* saves only the differences to the original
+ROM as `.ips`. This lets you share a mod without distributing the ROM – others apply
+the patch to their own copy with a common patcher (e.g. Lunar IPS, Floating IPS,
+RomPatcher.js). Details:
 
-* Standard-IPS (`PATCH` … `EOF`), lange Füllbereiche werden als RLE-Datensätze
-  kodiert, der Patch bleibt dadurch klein.
-* Der Sonderfall Offset `0x454F46` (sieht aus wie „EOF“) wird umgangen.
-* Wurde die ROM auf 32 MB erweitert, reicht das 24-Bit-Format nicht mehr – dann wird
-  automatisch **IPS32** geschrieben (`IPS32` … `EEOF`). Das können z. B. Floating IPS
-  und RomPatcher.js; ältere Patcher nicht. Das Studio weist beim Speichern darauf hin.
-* Selbstkontrolle: vor dem Speichern wird der Patch auf die Original-ROM angewendet
-  und mit dem aktuellen Stand verglichen. Nur bei exakter Übereinstimmung wird er
-  gespeichert. Die Kopf-Prüfsumme ist im Patch bereits korrigiert.
+* Standard IPS (`PATCH` … `EOF`); long fill runs are encoded as RLE records, which
+  keeps the patch small.
+* The special case of offset `0x454F46` (which looks like "EOF") is avoided.
+* If the ROM was expanded to 32 MB, the 24-bit format is no longer enough – then
+  **IPS32** (`IPS32` … `EEOF`) is written automatically. Floating IPS and RomPatcher.js
+  support it; older patchers do not. The studio points this out when saving.
+* Self-check: before saving, the patch is applied to the original ROM and compared
+  with your current state. It is only saved if both match exactly. The header
+  checksum is already fixed inside the patch.
 
-### Komplett-Paket
-Alle bearbeitbaren Daten auf einmal heraus- und wieder hineinschreiben, ohne jede
-Datei einzeln auszuwählen.
+### Complete package
+Write all editable data out at once and import it back, without picking each file.
 
-**Exportieren** erzeugt ein ZIP mit rund 3.550 Dateien (etwa 6 MB, ~4 Sekunden):
+**Export** creates a ZIP with about 3,550 files (around 6 MB, ~4 seconds):
 
 ```
-manifest.json          ROM-Prüfsumme und Anzahl je Bereich
-sprites/    2.475 PNG  vollbilder/  10 PNG    menue/     116 PNG
+manifest.json          ROM checksum and count per area
+sprites/    2,475 PNG  vollbilder/  10 PNG    menue/     116 PNG
 texturen/     640 PNG  schriften/    3 PNG    karten/      3 JSON
 sounds/       282 WAV  texte/        1 CSV    missionen/  18 CSV
 hud/            7 PNG
 ```
 
-**Einspielen** liest dasselbe ZIP wieder ein. Du kannst es entpacken, mit deinen
-Werkzeugen bearbeiten und neu einpacken – die Dateinamen müssen nur gleich bleiben,
-denn darüber läuft die Zuordnung (`spr_a827e0`, `menu_c7a5fc`, `tex_3f0218`,
-`snd_071e1c`, …). Über „Einzelne Dateien einspielen" geht es auch ohne ZIP mit einer
-Mehrfachauswahl.
+**Import** reads the same ZIP back in. You can unpack it, edit it with your own tools
+and pack it again – the file names just have to stay the same, because they are used
+to match the data (`spr_a827e0`, `menu_c7a5fc`, `tex_3f0218`, `snd_071e1c`, …).
+"Import single files" works without a ZIP, with a multiple selection.
 
-* Jeder Bereich lässt sich per Häkchen ein- und ausschalten.
-* Es wird nur geschrieben, was sich tatsächlich unterscheidet. Ein Paket unverändert
-  wieder einzuspielen lässt die ROM **byteidentisch**.
-* Unbekannte oder zusätzliche Dateien werden still übersprungen.
-* Alle Bereiche teilen sich einen gemeinsamen Speicherverwalter, damit verschobene
-  Daten einander nicht überschreiben.
-* Am Ende erscheint ein Bericht: was geändert wurde und was nicht passte.
+* Each area can be switched on and off with a checkbox.
+* Only what actually differs is written. Re-importing an unchanged package leaves the
+  ROM **byte-identical**.
+* Unknown or extra files are skipped silently.
+* All areas share one space allocator so that relocated data never overwrite each other.
+* A report at the end lists what was changed and what did not fit.
 
 ### Sprites
-2.475 Sprites (2.303 BIOS-RLE-komprimiert, 172 unkomprimiert), 4bpp mit 16 Farben:
-Autos, Figuren, Waffen, Effekte, Objekte. 304 davon enthalten zwei Frames in einem Block
-(meist 32×64 + 64×32 bei Fahrzeugen); die liegen im PNG untereinander.
+2,475 sprites (2,303 BIOS-RLE compressed, 172 uncompressed), 4bpp with 16 colours:
+cars, characters, weapons, effects, objects. 304 of them contain two frames in one
+block (mostly 32×64 + 64×32 for vehicles); in the PNG they are stacked vertically.
 
-* Export als indiziertes PNG (einzeln oder alles als ZIP, inklusive `.pal`-Dateien).
-* Import per PNG. **Bildgröße nicht ändern.** Indizierte PNGs behalten ihre Indizes;
-  RGB/RGBA-PNGs werden der Palette zugeordnet (Schalter *„Farben zuordnen statt Indizes"*).
-* Palette direkt im Studio ändern (Farbfeld anklicken). Achtung: viele Sprites
-  teilen sich eine Palette.
-* Wird eine Grafik nach dem Packen größer als ihr Platz, wandert sie ans ROM-Ende
-  und **alle Zeiger darauf werden angepasst**. Reicht der Platz nicht, meldet das
-  Studio es, statt etwas kaputtzuschreiben.
-* Identische Kopien (Duplikatgruppen) werden beim Import automatisch mitgezogen.
+* Export as indexed PNG (single or all as ZIP, including `.pal` files).
+* Import via PNG. **Do not change the image size.** Indexed PNGs keep their indices;
+  RGB/RGBA PNGs are matched to the palette (switch *"Map colours instead of indices"*).
+* Edit palettes directly in the studio (click a colour swatch). Note: many sprites
+  share one palette.
+* If a graphic becomes larger than its slot after packing, it moves to the end of the
+  ROM and **all pointers to it are updated**. If there is not enough room, the studio
+  says so instead of overwriting anything.
+* Identical copies (duplicate groups) are updated automatically on import.
 
-**Paletten:** Jedes Sprite hat seine echte Palette. Normalerweise zeigt ein Objekt
-direkt auf den Sprite-Datensatz und daneben auf die Palette. Bei Animationen
-(Busse, Feuerwehr, Taxi, Krankenwagen, Kran) zeigt das Objekt aber auf eine
-Frame-Liste – `[Anzahl][Zeiger auf Liste][Palette]` –, und alle Frames der Liste
-nutzen diese Palette. So sind auch die früher 116 Sprites mit Ersatzpalette gelöst.
+**Palettes:** every sprite has its real palette. Usually an object points directly to
+the sprite record and, next to it, to the palette. For animations (buses, fire
+engine, taxi, ambulance, crane), however, the object points to a frame list –
+`[count][pointer to list][palette]` – and all frames of the list use that palette.
+This also solves the 116 sprites that previously showed a substitute palette.
 
-Beim Massenimport wird die Datei über den Namen zugeordnet – `spr_a827e0_64x64.png`
-gehört zum Sprite `spr_a827e0`. Namen also nicht umbenennen.
+For bulk import the file is matched by its name – `spr_a827e0_64x64.png` belongs to
+sprite `spr_a827e0`. So do not rename files.
 
-### Menü-Grafiken
-116 Bilder aus **4bpp-Kacheln + Tilemap + 16-Farben-Palette** – ein anderes Format als
-die Sprites, deshalb ein eigener Bereich:
+**Sets (sheets):** the **Sets** switch at the top shows sprites that belong together as
+one image. The game stores all views of a vehicle, all frames of a character or an
+effect as a table of consecutive pointers to the sprite records – every such table is a
+set (239 sets with 2 to 170 sprites, together 2,295 of the 2,475 sprites; e.g. 23 per
+vehicle, 30 per pedestrian). The sheet arranges the sprites in rows with a 2-pixel gap
+(index 0 = transparent); duplicates appear only once.
 
-* **Titelbild** (#57): das Stadtpanorama, 480×320 Pixel
-* **Logo** (#11–#15): der „Grand Theft Auto Advance"-Schriftzug in fünf Animationsstufen
-* **Rockstar-Games-Logo** (#21) und **Digital-Eclipse-Logo** (#22) – die Startbildschirme
-* 71 Vollbilder 240×160: Figuren-Portraits, Zwischensequenzen, Briefing-Tafeln
-* eine 240×320-Zwischensequenz, zwei 240×40-Rahmen, zwei 240×16-Leisten
-* 39 Symbole 64×64: Waffen, Objekte, Karten-Marker
+* **Export / import sheet** for one set, **Export all sheets as ZIP** and **Import
+  sheets** (multiple selection; matched by the name `set_f73dec_…`).
+* On import every part goes the same way as a single PNG: packing, moving with pointer
+  update if needed, duplicates follow. Only sprites that really changed are written.
+* Keep layout and image size. Indexed PNGs keep their indices; RGB PNGs are matched to
+  each sprite's own palette with "match colours".
+* The set's palette can be edited right in the side panel. Six sets mix palettes – there
+  the sheet shows all sprites with the palette of the first one.
 
-Export als indiziertes PNG (Index 0 ist transparent), Import baut Kacheln **und**
-Tilemap neu auf und erkennt dabei gespiegelte Wiederholungen – oft braucht das
-Ergebnis sogar weniger Platz als das Original. Passt es nicht mehr, wandert der Block
-(Kacheln und Karte bleiben zusammenhängend) ans ROM-Ende und der Datensatz wird
-angepasst. Bildgröße beibehalten, höchstens 16 Farben, maximal 1.024 verschiedene Kacheln.
-Die Palette lässt sich im Studio direkt ändern.
+### Menu graphics
+116 images made of **4bpp tiles + tilemap + 16-colour palette** – a different format
+from the sprites, hence a separate area:
 
-Bekannte Bilder sind mit ★ markiert und über ihren Namen suchbar.
+* **Title screen** (#57): the city panorama, 480×320 pixels
+* **Logo** (#11–#15): the "Grand Theft Auto Advance" lettering in five animation stages
+* **Rockstar Games logo** (#21) and **Digital Eclipse logo** (#22) – the boot screens
+* 71 full screens 240×160: character portraits, cutscenes, briefing boards
+* one 240×320 cutscene, two 240×40 frames, two 240×16 bars
+* 39 icons 64×64: weapons, objects, map markers
 
-Die Tabelle steht bei `0xC98D28`, 116 Einträge à 28 Byte:
-`{palPtr, flags, tilesPtr, tilesSize, mapPtr, u16 w, u16 h, u32}` – dabei gilt immer
+Export as indexed PNG (index 0 is transparent). Import rebuilds tiles **and** tilemap
+and detects mirrored repeats – the result often needs even less space than the
+original. If it no longer fits, the block (tiles and map stay together) moves to the
+end of the ROM and the record is updated. Keep the image size, at most 16 colours,
+at most 1,024 different tiles. The palette can be edited directly in the studio.
+
+Known images are marked with ★ and can be found by name.
+
+The table is at `0xC98D28`, 116 entries of 28 bytes:
+`{palPtr, flags, tilesPtr, tilesSize, mapPtr, u16 w, u16 h, u32}` – where always
 `mapPtr == tilesPtr + tilesSize`.
 
-### Vollbilder (Innenräume)
-Die zehn 240×160-Bildschirme (8bpp, 128-Farben-Palette) – die begehbaren Innenräume
-(Wohnung, Club, …). Gleiche Bedienung wie bei den Sprites; neun der zehn sind identisch
-und werden gemeinsam aktualisiert.
+### Full screens (interiors)
+The ten 240×160 screens (8bpp, 128-colour palette) – the walkable interiors
+(apartment, club, …). Same handling as sprites; nine of the ten are identical and are
+updated together.
 
-### Welt-Texturen
-640 unkomprimierte 8-Bit-Texturen der Stadt: 146× 32×32, 348× 64×64, 146× 128×128 –
-Dachflächen, Fassaden, Straßenbelag, Parkplätze, Pools. Lage und Größe sind fest,
-der Import schreibt direkt an Ort und Stelle.
+### World textures
+640 uncompressed 8-bit city textures: 146× 32×32, 348× 64×64, 146× 128×128 –
+roofs, facades, road surfaces, car parks, pools. Position and size are fixed; the
+import writes in place.
 
-**Die Weltpalette ist gefunden:** 256 Farben, in der ROM viermal abgelegt –
-`0x853DDC`, `0x91E32C`, `0x9D07F0`, `0xCAC048`, alle vier byteidentisch. Die Kopien
-bei `0x91E32C` und `0x9D07F0` stehen unmittelbar hinter den Kartendaten von Insel 1
-bzw. 2. Nachgewiesen über das Paletten-RAM des beiliegenden Savestates: dort steht
-genau dieser Block, Byte für Byte. Das Studio erkennt sie an ihren ersten vier
-Einträgen (`7C1F F3FF EBBD E37B`) und benutzt sie als Voreinstellung; im Ausklappmenü
-stehen zusätzlich alle anderen in der ROM gefundenen Paletten zum Ausprobieren.
+**The world palette has been found:** 256 colours, stored four times in the ROM –
+`0x853DDC`, `0x91E32C`, `0x9D07F0`, `0xCAC048`, all four byte-identical. The copies at
+`0x91E32C` and `0x9D07F0` are located directly behind the map data of island 1 and 2.
+Proven via the palette RAM of the included savestate: this exact block is there, byte
+for byte. The studio recognises it by its first four entries (`7C1F F3FF EBBD E37B`)
+and uses it as the default; the drop-down additionally lists all other palettes found
+in the ROM for experimenting.
 
-### Schriften
-Die Spieltexte werden zur Laufzeit aus **8×8-Glyphen** gesetzt: 4bpp, 32 Byte je
-Zeichen, fortlaufend in der ROM. Drei Schriften sind gefunden:
+### Fonts
+The game texts are drawn at runtime from **8×8 glyphs**: 4bpp, 32 bytes per character,
+stored consecutively in the ROM. Three fonts have been found:
 
-| Offset | Zeichen | Beschreibung |
+| Offset | Characters | Description |
 |---|---|---|
-| `0x342E08` | 16 | HUD-Schrift: Herzen, Sterne, Doppelpunkt, Ziffern 0–9 |
-| `0x346808` | 88 | Textschrift, kantengeglättet (Farbstufen 0,1,3,6,8,11–14) |
-| `0x347308` | 88 | Textschrift, einfach (Farbstufen 0,1,3,6) |
+| `0x342E08` | 16 | HUD font: hearts, stars, colon, digits 0–9 |
+| `0x346808` | 88 | Text font, anti-aliased (colour levels 0,1,3,6,8,11–14) |
+| `0x347308` | 88 | Text font, plain (colour levels 0,1,3,6) |
 
-Aufbau eines Textschriftblocks (88 Glyphen):
+Layout of a text font block (88 glyphs):
 
 ```
-0        Pfeil-/Markierungszeichen
+0        arrow/marker character
 1–26     A–Z
-27 -     28–30 leer     31 .
+27 -     28–30 empty    31 .
 32–36    , ' ? ! $
 37–46    0–9            47 +
-48–66    Akzentbuchstaben (19)
+48–66    accented letters (19)
 67–72    / : ; ( ) %
-73–87    Symbole und Füllzeichen
+73–87    symbols and filler characters
 ```
 
-Export und Import laufen über ein Kachelblatt mit 16 Zeichen je Reihe
-(128×48 Pixel bei der Textschrift). Größe beibehalten, höchstens 16 Farbstufen;
-geschrieben wird an Ort und Stelle, nichts wird verschoben.
+Export and import use a tile sheet with 16 characters per row (128×48 pixels for the
+text font). Keep the size, at most 16 colour levels; data is written in place,
+nothing is moved.
 
-**Wie ich sie gefunden habe:** über den Bildspeicher des beiliegenden Savestates.
-Dort stand sichtbar `CHINATOW…`, `MPH` und die HUD-Ziffern – diese Kacheln habe ich
-Byte für Byte in der ROM wiedergefunden. Die Reihenfolge (A=Glyphe 1, B=2, …) ergab
-sich direkt aus der Zuordnung der einzelnen Buchstaben.
+**How they were found:** via the video memory of the included savestate. It visibly
+contained `CHINATOW…`, `MPH` and the HUD digits – these tiles were found byte for byte
+in the ROM. The order (A = glyph 1, B = 2, …) followed directly from matching the
+individual letters.
 
-> **Zur Kodierung:** A–Z, Ziffern und die gängigen Satzzeichen sind gesichert. Welcher
-> Zeichencode auf welche Glyphe zeigt, rechnet der Programmcode aus – eine Tabelle
-> dafür gibt es in der ROM nicht. Die Zeichen über `0x7F` in den Texten folgen einer
-> eigenen Kodierung des Spiels, nicht Latin-1. Die 19 Akzentbuchstaben sind deshalb
-> nach Position benannt (`Akz1`…`Akz19`), nicht nach Buchstabe.
+> **About the encoding:** A–Z, digits and common punctuation are confirmed. Which
+> character code points to which glyph is computed by the program code – there is no
+> table for it in the ROM. Characters above `0x7F` in the texts follow the game's own
+> encoding, not Latin-1. The 19 accented letters are therefore named by position
+> (`Akz1`…`Akz19`), not by letter.
 
-### HUD-Grafiken
-Die Grafiken der Spielanzeige lädt das Spiel direkt aus dem Programmcode (per DMA,
-ohne Tabelle) – deshalb stehen sie nicht bei den Sprites. Per Emulator gefunden
-(Grafikspeicher und HUD-Tilemap des laufenden Spiels mit der ROM verglichen):
+### HUD graphics
+The game loads the graphics of the on-screen display directly from its program code
+(via DMA, without a table) – which is why they are not listed under sprites. Found
+with the emulator (video memory and HUD tilemap of the running game compared with
+the ROM):
 
 | Element | Offset | Format | Palette |
 |---|---|---|---|
-| Waffensymbole (16 × 32×32) | `0x3444E8` | 4bpp-Kacheln | `0xCA635C` |
-| Geld-Ziffern `$0–9` (8×16) | `0x343028` | 4bpp, obere/untere Hälfte getrennt | Weltpalette Bank 15 |
-| Uhr-Ziffern `0–9` | `0x342EE8` | 4bpp | Weltpalette Bank 15 |
-| Radar-Symbole (L, J, V, C, A, K, M, Ziele) | `0x3464E8` | 25 Kacheln | `0xCA637C` |
-| Radar-Punkte | `0x342B28` | 23 Kacheln | `0xCA637C` |
-| Radar-Ring mit „N“ (48×48) | `0x343BE8` | ein Byte je Pixel | Weltpalette Bank 15 |
-| Radar-Maske (48×48) | `0x3432E8` | ein Byte je Pixel | Weltpalette Bank 15 |
+| Weapon icons (16 × 32×32) | `0x3444E8` | 4bpp tiles | `0xCA635C` |
+| Money digits `$0–9` (8×16) | `0x343028` | 4bpp, upper/lower half separate | world palette bank 15 |
+| Clock digits `0–9` | `0x342EE8` | 4bpp | world palette bank 15 |
+| Radar icons (L, J, V, C, A, K, M, targets) | `0x3464E8` | 25 tiles | `0xCA637C` |
+| Radar dots | `0x342B28` | 23 tiles | `0xCA637C` |
+| Radar ring with "N" (48×48) | `0x343BE8` | one byte per pixel | world palette bank 15 |
+| Radar mask (48×48) | `0x3432E8` | one byte per pixel | world palette bank 15 |
 
-Export/Import als indiziertes PNG (16 Farben), an Ort und Stelle. Herzen, Sterne und
-die Ziffern der Lebensanzeige gehören zur HUD-Schrift unter „Schriften“. Den
-Radar-Inhalt und die Lebenszahl setzt das Spiel zur Laufzeit aus diesen Teilen zusammen.
+Export/import as indexed PNG (16 colours), in place. Hearts, stars and the digits of
+the health display belong to the HUD font under "Fonts". The game assembles the radar
+content and the health number at runtime from these parts.
 
-### Karten-Editor
-Alle drei Inseln (Insel 1: 256×256 Zellen, Inseln 2 und 3: 128×256). Eine Zelle
-entspricht 64×64 Welteinheiten.
+**Palette editor:** below every graphic its palette is shown as swatches – as with
+sprites and menu graphics, click a swatch and pick the colour (15 bits, rounded). The
+studio names the other HUD elements that use the same palette. Money and clock digits,
+radar ring and mask share colours 240–255 of the world palette.
 
-Vier Ebenen je Zelle:
-* **Bodengrafik** (16 Bit) – Nummer einer 40×40-Pixel-Zellgrafik aus 5×5 Kacheln.
-  Das ist genau das, was das Spiel als Boden zeichnet (per Emulator nachgewiesen).
-* **Kacheln** (16 Bit) – der Zellwert (Flächenart)
-* **Kollision** (8 Bit) – nur zwei Werte: 0 (Straßennetz) und 11 (Häuserblocks samt
-  Gehwegen und Plätzen)
-* **Höhe** (Ebene B, 8 Bit) – im Wesentlichen 0, 16 und 32
+### Map editor
+All three islands (island 1: 256×256 cells, islands 2 and 3: 128×256). One cell
+corresponds to 64×64 world units.
 
-Beim Malen mit der Kachelauswahl wird die Bodengrafik mitgeschrieben (abschaltbar):
-standardmäßig die häufigste Grafik des Werts, per **Grafik-Varianten**-Leiste im
-Pinselbereich jede andere (z. B. Mittellinie, Zebrastreifen, Ufer). Die **Pipette**
-übernimmt die genaue Grafik einer Zelle – so lassen sich Kreuzungen, Plätze oder
-Parks exakt an andere Stellen kopieren. Kopieren/Einfügen nimmt die Bodengrafik mit.
+Four layers per cell:
+* **Ground graphic** (16 bits) – number of a 40×40-pixel cell graphic made of 5×5
+  tiles. This is exactly what the game draws as the ground (proven in the emulator).
+* **Tiles** (16 bits) – the cell value: bits 0–9 the surface type, bits 10–15 the
+  district (rectangular areas; the district name in the game such as CHINATOWN comes from it)
+* **Collision** (8 bits) – only two values: 0 (road network) and 11 (building blocks
+  including pavements and squares)
+* **Height** (layer B, 8 bits) – essentially 0 (sea around the city), 16 (city level)
+  and 32 (upper level, elevated road)
 
-**Fünf Ansichten**, jede mit eigener Legende samt Zellzahlen:
+When painting with the tile picker, the ground graphic is written too (can be switched
+off): by default the most common graphic of the value, any other one via the
+**graphic variants** bar in the brush panel (e.g. centre line, zebra crossing, shore).
+The **eyedropper** takes the exact graphic of a cell – so crossings, squares or parks
+can be copied exactly to other places. Copy/paste includes the ground graphic.
 
-| Ansicht | zeigt |
+**Five views**, each with its own legend including cell counts:
+
+| View | shows |
 |---|---|
-| Texturen | die echte Bodengrafik des Spiels |
-| **Gebäudetypen** | färbt jede Zelle nach Straße, Gehweg, Gebäude, oberer Ebene, Rampe |
-| Textur + Typ | beides übereinander |
-| Kollision | begehbar / gesperrt |
-| Höhe | Ebene B als Graustufen |
+| Textures | the real ground graphics of the game |
+| **Building types** | colours each cell as water, road, block, upper level, ramp |
+| Texture + type | both on top of each other |
+| Collision | road network / block |
+| Height | layer B as greyscale |
 
-Die Gebäudetypen sind nicht geraten, sondern ergeben sich aus Kollision und Höhe.
-Die Auswertung aller drei Inseln zeigt: Kollision kennt nur 0 und 11, die Höhe im
-Wesentlichen 0, 16 und 32. Daraus werden sieben Flächenarten – in der Typen-Ansicht
-sieht man auf einen Blick Straßennetz, bebaute Blöcke und die Hochstraße mit ihren
-Rampen.
+The surface types are not guessed but follow from collision and height. The analysis of
+all three islands (ground graphics laid next to collision and height) shows: height 0 is
+the sea around the city; at height 16, collision 0 is the road network and collision 11
+the block including pavement and squares; height 32 is the upper level, values in
+between are ramps. The types view therefore shows road network, blocks, water and the
+elevated road with its ramps at a glance. (Up to version 1.1 these types were named
+wrongly – height 0 was called "road" there.)
 
-Weitere Hilfen:
-* **Kachelauswahl nach Gebäudetyp gruppiert**, mit Farbpunkt, Häufigkeit auf dieser
-  Insel, Suchfeld, Typfilter und einer Zeile „zuletzt benutzt".
-* **Kollision und Höhe mitschreiben** (standardmäßig an): Malst du eine Hauskachel,
-  bekommt die Zelle automatisch die passende Sperre und Höhe. Ohne das entstünden
-  Gebäude, durch die man hindurchlaufen kann.
-* **Übersichtskarte** oben rechts mit Sichtfenster – ein Klick springt dorthin.
-* **Zell-Inspektor**: zeigt links den aktuellen Pinsel (Kachelbild, Typ, Kollision,
-  Höhe) und darunter live die Zelle unter dem Mauszeiger samt Weltkoordinaten.
-* **Statuszeile** unter der Karte mit Position, Zellwert, Flächenart und Schrittzähler.
-* Objekte und Zonen sind anklick- und bearbeitbar.
+More helpers:
+* **Tile picker grouped by building type**, with colour dot, frequency on this island,
+  search field, type filter and a "recently used" row.
+* **Also write collision and height** (on by default): if you paint a road or block
+  tile, the cell automatically gets the matching collision and height.
+* **Overview map** at the top right with the view frame – a click jumps there.
+* **Cell inspector**: shows the current brush (tile image, type, collision, height) and
+  below it, live, the cell under the mouse pointer including world coordinates.
+* **Status bar** below the map with position, cell value, surface type and step counter.
+* Objects and zones can be clicked and edited.
 
-Werkzeuge: Stift, Linie, Rechteck, Füllen, Pipette, Auswahl, Schieben;
-Pinselgrößen 1–8; Undo/Redo über alle drei Ebenen hinweg; Kopieren/Einfügen; Raster.
+Tools: pen, line, rectangle, fill, eyedropper, selection, pan; brush sizes 1–8;
+undo/redo across all layers; copy/paste; grid.
 
-Tastatur: `P` `L` `R` `F` `I` `S` `H` für die Werkzeuge, `G` Raster,
-`Strg+Z` / `Strg+Y` Undo/Redo, `Strg+C` / `Strg+V`, `Entf` Auswahl füllen,
-Leertaste gedrückt halten zum Schieben, Mausrad zoomt.
+Keyboard: `P` `L` `R` `F` `I` `S` `H` for the tools, `G` grid, `Ctrl+Z` / `Ctrl+Y`
+undo/redo, `Ctrl+C` / `Ctrl+V`, `Del` fills the selection, hold the space bar to pan,
+mouse wheel zooms.
 
-**In ROM schreiben** überträgt die aktuelle Insel. Größe und Lage bleiben gleich,
-es wird nichts verschoben. `JSON` / `Laden` tauscht ganze Karten aus (inklusive
-Bodengrafik).
+**Write to ROM** transfers the current island. Size and position stay the same,
+nothing is moved. `JSON` / `Load` exchanges whole maps (including ground graphics).
 
-#### Welt-Kacheln (Bodengrafik) importieren und exportieren
+#### Importing and exporting world tiles (ground graphics)
 
-Im Seitenbereich unter „Welt-Kacheln“:
-* **Kachelsatz** – alle 8×8-Kacheln einer Insel als ein PNG (32 Kacheln je Zeile,
-  256 Farben der Weltpalette). Bearbeiten, gleich groß lassen, wieder einspielen –
-  jede Kachel wird an Ort und Stelle ersetzt und wirkt überall, wo sie vorkommt.
-  (Insel 1: 1.687 Kacheln, Insel 2: 1.818, Insel 3: 1.476.)
-* **Ausschnitt** – mit dem Auswahlwerkzeug einen Bereich markieren, **Als Bild
-  exportieren** (40 Pixel je Zelle), ein neues Straßenbild, eine Kreuzung oder ein
-  ganzes Viertel hineinmalen und **Bild einspielen**. Das Studio zerlegt das Bild in
-  Kacheln, verwendet identische Kacheln wieder, belegt frei gewordene Plätze neu und
-  schreibt die Bodengrafik sofort in die ROM.
+In the side panel under "World tiles":
+* **Tile set** – all 8×8 tiles of an island as one PNG (32 tiles per row, 256 colours of
+  the world palette). Edit it, keep the size, import it again – every tile is replaced
+  in place and applies everywhere it is used.
+  (Island 1: 1,687 tiles, island 2: 1,818, island 3: 1,476.)
+* **Area** – mark an area with the selection tool, **Export as image** (40 pixels per
+  cell), paint a new street, a crossing or a whole district into it and **Import
+  image**. The studio splits the image into tiles, reuses identical tiles, reuses slots
+  that became free and writes the ground graphics to the ROM immediately.
 
-Platz für neue Kacheln: Kacheln, Zellgrafiken und Bodenkarte liegen im Original am
-Stück. Reichen die frei gewordenen Plätze nicht, zieht die Bodenkarte in den freien
-ROM-Bereich und Kacheln/Zellgrafiken wachsen an ihrem Platz (Insel 1: ca. 130 KB,
-Inseln 2/3: ca. 64 KB). Erst danach wäre eine Erweiterung auf 32 MB nötig – das
-fragt das Studio vorher.
+Room for new tiles: in the original, tiles, cell graphics and ground map are stored in
+one piece. If the freed slots are not enough, the ground map moves to the free ROM area
+and tiles/cell graphics grow in place (island 1: about 130 KB, islands 2/3: about
+64 KB). Only after that would an expansion to 32 MB be needed – the studio asks first.
 
-Grenze des Spiels: Die Engine lädt sichtbare Kacheln in einen Zwischenspeicher mit
-256 Plätzen. Die Originalkarten brauchen je Bildschirm höchstens etwa 200. Das
-Studio warnt, wenn ein eingespieltes Bild mehr als 240 verschiedene Kacheln auf
-einen Bildschirm bringt – dann kann das Spiel dort falsche Kacheln zeigen.
+Limit of the game: the engine loads visible tiles into a cache with 256 slots. The
+original maps need at most about 200 per screen. The studio warns if an imported image
+puts more than 240 different tiles on one screen – the game may then show wrong tiles
+there.
 
-#### 3D-Ansicht
+#### Image → city
 
-Der Schalter **3D-Ansicht** zeigt den Ausschnitt um die aktuelle Stelle als Relief:
-Oberseiten mit der echten Bodengrafik, Höhe aus Ebene B, gesperrte Zellen als Blöcke
-(so sieht man Häuserblocks und Straßennetz räumlich). Alle Werkzeuge funktionieren
-auch in 3D – die linke Maustaste malt, füllt, wählt aus oder nimmt per Pipette auf.
+The **Image → city** button brings any image (PNG, JPEG, WebP, BMP, GIF) into the
+island – into the selection or, without a selection, into the whole island. The image
+is stretched, fitted (border stays) or cropped. The image is on the left, the live
+result on the right. **Apply** writes into the editor; undo works.
 
-Steuerung: rechte Maustaste drehen, Mausrad zoomen, mittlere Taste / Leertaste /
-Hand-Werkzeug verschieben, Pfeiltasten bewegen, `Q`/`E` drehen. Ein Klick in die
-Übersichtskarte springt auch in 3D an die Stelle.
+**City plan (colours → surfaces)** – for large-scale map mods. Each image colour stands
+for a surface type (water, road, block, upper level …):
+* The studio suggests the legend from the most common image colours. Every colour can
+  be picked in the image with the **eyedropper**; the target is a surface type, the
+  current brush or "leave unchanged".
+* **Colour tolerance**: how far an image colour may differ from the legend colour. On
+  top of that, a majority of up to 16 pixels decides each cell – so JPEG artefacts and
+  soft edges don't matter. Colours outside the tolerance take the nearest legend colour
+  or leave the cell unchanged.
+* Graphics, cell value, collision and height come from the original island: for every
+  cell the studio looks up how the original designs a cell of this type with exactly
+  these eight neighbours. Kerbs, corners, pavements and shores therefore fit by
+  themselves. No new tiles are created and no extra ROM space is needed.
+* **Surface** per legend entry: automatic or one of the typical inner surfaces of this
+  type (e.g. lawn, concrete, roof, gravel) – with a preview image.
+* **Road markings**: straight roads of even width get the yellow centre line exactly in
+  the middle, the rest plain asphalt.
+* **Keep districts**: the district (upper 6 bits of the cell value) is kept, only the
+  surface type changes – the district name in the game stays correct.
+* **Export template** saves the target area as PNG with one pixel per cell in the
+  colours of the "Building types" view. Paint over it in an image editor, load it again,
+  legend "Editor colours" – done.
 
-Die Blöcke sind eine Bearbeitungshilfe: Die echten Gebäude sind 3D-Modelle des
-Spiels (eigene Datenstruktur), ihre Höhe wird hier nicht nachgebildet. Läuft WebGL
-nicht, meldet das Studio das und die 2D-Ansicht bleibt nutzbar.
+**Ground graphics (image → tiles)** – the image itself becomes the ground graphics
+(40×40 pixels per cell, area up to 64×64 cells):
+* **Matching palette**: the 256 colours of the world palette are shared by the ground,
+  640 textures and the HUD. The studio finds out which colour slots no tile and no
+  texture uses (13 in the original ROM) and, if wanted, fills them automatically with
+  the image colours the existing palette matches worst. All other image colours get the
+  nearest existing colour. Slot 0 (transparent) and 240–255 (HUD) stay untouched.
+* **Eyedropper**: click a free colour slot, then the colour in the image – or
+  "Eyedropper: next free slot" for several colours in a row. Right-click releases a
+  slot. The eyedropper averages 3×3 pixels so that a single JPEG outlier doesn't
+  distort the colour.
+* **Colour tolerance**: image colours closer together than this are merged into one
+  colour before matching – against JPEG artefacts and noise.
+* **Tile tolerance**: 8×8 image tiles that barely differ from an existing tile reuse it.
+  **Keep the tile limit automatically** raises the tolerance until at most 240 different
+  tiles appear on one screen.
+* Transparent parts of the image keep the existing ground graphics.
 
-### Kamera-Hack
+#### 3D view
 
-Ändert Kameraabstand und -neigung per Zusatzcode in der ROM, fest voreingestellt und
-auf Wunsch im Spiel verstellbar. Jederzeit vollständig entfernbar (**Hack entfernen**
-stellt alle Originalbytes wieder her).
+The **3D view** switch shows the area around the current position as a relief: tops
+with the real ground graphics, height from layer B, blocks (collision 11) as raised
+blocks – so you see blocks and the road network in three dimensions. All tools also
+work in 3D – the left mouse button paints, fills, selects or picks with the eyedropper.
 
-**Wie die Kamera des Spiels arbeitet** (per Emulator-Analyse ermittelt):
-* Kamera im IWRAM bei `0x03000014`: X, Y, **Höhe** (16.16-Festkomma). Die sichtbare
-  Breite ist 2 × Höhe; Boden (affine Hintergrundebene) und Sprites werden gemeinsam
-  danach skaliert.
-* Zielhöhen: 164 zu Fuß und bei Pausenmenü „Camera 1“, 192 bei „Camera 2“, 220 bei
-  „Camera 3“ und in Fahrzeugen; Grenzen 164…220.
-* Gebäude sind echte 3D-Modelle; ihre Eckpunkte werden bei `0x0800EEBA` mit
-  `k = 118 / (Kamerahöhe − z)` perspektivisch projiziert.
+Controls: right mouse button rotates, mouse wheel zooms, middle button / space bar /
+hand tool pans, arrow keys move, `Q`/`E` turn. A click on the overview map also jumps
+there in 3D.
 
-**Was der Hack macht:**
-* **Abstand**: eigene Zielhöhen für zu Fuß, die drei Kamerastufen des Pausenmenüs
-  und Fahrzeuge, dazu eigene Grenzen (64…255; unter 96 experimentell, weil hohe
-  Gebäude dann höher als die Kamera sein können). Über 255 geht es nicht – die
-  Bodenebene des GBA ist nur 512 Pixel breit.
-* **Neigung**: verschiebt den Fluchtpunkt der 3D-Projektion. Alles auf Bodenhöhe
-  bleibt exakt, höhere Teile kippen – man sieht die Seitenwände der Gebäude wie bei
-  einer schräg gestellten Kamera.
-* **Steuerung im Spiel** (abschaltbar): **SELECT halten** + Steuerkreuz = Neigung,
-  + `L`/`R` = näher/weiter, + `A` = zurück zur Voreinstellung. Solange SELECT gehalten
-  wird, sieht das Spiel keine Tasten; SELECT allein wird beim Loslassen an das Spiel
-  weitergereicht.
-* **Sichtbereich erweitern**: Gebäude werden schon ab 64 statt 16 Welteinheiten
-  außerhalb des Bildes gezeichnet – verhindert Aufpoppen am Rand bei starker Neigung.
+The blocks are an editing aid: the real buildings are 3D models of the game (their own
+data structure); their height is not reproduced here. If WebGL does not run, the
+studio says so and the 2D view remains usable.
 
-Die Vorschau zeigt Beispielgebäude mit derselben Projektionsformel wie das Spiel.
+### Camera hack
 
-**Ego-Perspektive:** nicht möglich. Die Engine zeichnet den Boden als flache
-Hintergrundebene von oben und Autos/Figuren als flache Sprites von oben. Eine
-Ego-Perspektive bräuchte einen komplett neuen Renderer. Am nächsten kommt man mit
-kleinem Abstand und starker Neigung.
+Changes camera distance and tilt with extra code in the ROM, as a fixed preset and, if
+you like, adjustable in game. Can be removed completely at any time (**Remove hack**
+restores all original bytes).
 
-Technik: Der Code (rund 420 Byte Thumb, Kennung `GTASCAM1`) liegt im freien
-ROM-Bereich und ist an drei Stellen eingehängt: Projektion `0x0800EED8`,
-Tastenabfrage `0x080656F8`, Zielhöhe `0x0800A040`. Die im Spiel verstellten Werte
-liegen im IWRAM bei `0x030000C0` – einem 60-Byte-Füllbereich zwischen den
-Variablen und dem ARM-Code des Spiels, auf den keine Stelle im Programm verweist.
-Eine Kennung schützt zusätzlich vor zufälligem Überschreiben.
+**How the game camera works** (determined by emulator analysis):
+* Camera in IWRAM at `0x03000014`: X, Y, **height** (16.16 fixed point). The visible
+  width is 2 × height; ground (affine background layer) and sprites are scaled together
+  accordingly.
+* Target heights: 164 on foot and with pause menu "Camera 1", 192 with "Camera 2", 220
+  with "Camera 3" and in vehicles; limits 164…220.
+* Buildings are real 3D models; their vertices are projected in perspective at
+  `0x0800EEBA` with `k = 118 / (camera height − z)`.
 
-### Text-Editor
-13.775 über Zeiger erreichbare Zeichenketten – davon 8.698 Spieltexte und 5.077
-interne Bezeichner. Die Missionsdialoge liegen in fünf Sprachen vor
-(EN/ES/FR/IT/DE); das Studio erkennt 1.166 solcher Sprachgruppen und zeigt sie
-gemeinsam zum Bearbeiten an.
+**What the hack does:**
+* **Distance**: own target heights for on foot, the three camera levels of the pause
+  menu and vehicles, plus own limits (64…255; below 96 experimental, because tall
+  buildings can then be higher than the camera). More than 255 is not possible – the
+  GBA ground layer is only 512 pixels wide.
+* **Tilt**: shifts the vanishing point of the 3D projection. Everything at ground level
+  stays exact, higher parts lean – you see the side walls of the buildings like with a
+  tilted camera.
+* **In-game control** (can be switched off): **hold SELECT** + D-pad = tilt, + `L`/`R` =
+  closer/further, + `A` = back to the preset. While SELECT is held, the game sees no
+  buttons; SELECT alone is passed on to the game when released.
+* **Extend visible area**: buildings are drawn from 64 instead of 16 world units outside
+  the screen – prevents pop-in at the edge with strong tilt.
 
-* Volltextsuche, Filter nach Sprache, Suchen & Ersetzen über die sichtbare Auswahl.
-* CSV-Export/-Import für ganze Übersetzungen.
-* Kürzere Texte werden an Ort und Stelle geschrieben. **Längere Texte wandern ans
-  ROM-Ende, und alle Zeiger darauf werden angepasst** – neue Texte dürfen also
-  beliebig länger sein, solange Platz da ist.
-* Zeichensatz: Latin-1 (Codes bis 255). Nicht darstellbare Zeichen werden gemeldet
-  und durch `?` ersetzt.
+The preview shows example buildings with the same projection formula as the game.
+
+**First-person view:** not possible. The engine draws the ground as a flat background
+layer seen from above and cars/characters as flat sprites seen from above. A
+first-person view would need a completely new renderer. The closest you can get is a
+small distance and strong tilt.
+
+Technical: the code (about 420 bytes of Thumb, signature `GTASCAM1`) is located in the
+free ROM area and hooked in at three places: projection `0x0800EED8`, button input
+`0x080656F8`, target height `0x0800A040`. The values changed in game are stored in
+IWRAM at `0x030000C0` – a 60-byte padding area between the variables and the ARM code
+of the game that no part of the program refers to. A signature additionally protects
+against accidental overwriting.
+
+### Text editor
+13,775 strings reachable via pointers – 8,698 game texts and 5,077 internal
+identifiers. The mission dialogues exist in five languages (EN/ES/FR/IT/DE); the studio
+recognises 1,166 such language groups and shows them together for editing.
+
+* Full-text search, filter by language, find & replace over the visible selection.
+* CSV export/import for whole translations.
+* Shorter texts are written in place. **Longer texts move to the end of the ROM, and
+  all pointers to them are updated** – new texts may be as long as you like, as long as
+  there is room.
+* Character set: Latin-1 (codes up to 255). Characters that cannot be displayed are
+  reported and replaced by `?`.
 
 ### Sound
-282 PCM-Samples, zusammen 2,45 MB und rund 4,5 Minuten – Sprachaufnahmen, Motoren,
-Waffen, Radio-Schnipsel. Fast alle mit 9.556 Hz, 8 Bit, mono.
+282 PCM samples, 2.45 MB and about 4.5 minutes in total – voice recordings, engines,
+weapons, radio snippets. Almost all at 9,556 Hz, 8 bits, mono.
 
-* Wellenform ansehen, direkt im Browser abspielen.
-* Als WAV speichern (einzeln oder alles als ZIP), eigene WAV-Dateien einspielen.
-  Beliebige Abtastrate, 8/16/24/32 Bit, mono oder stereo – das Studio rechnet um.
-* Kürzere Aufnahmen passen immer; längere werden ans ROM-Ende verschoben und die
-  Zeiger angepasst.
+* View the waveform, play directly in the browser.
+* Save as WAV (single or all as ZIP), import your own WAV files. Any sample rate,
+  8/16/24/32 bits, mono or stereo – the studio converts.
+* Shorter recordings always fit; longer ones are moved to the end of the ROM and the
+  pointers are updated.
 
-> **Zu MIDI:** Diese ROM benutzt **keinen** Sequenzer wie Nintendos MusicPlayer2000
-> (Sappy). Es gibt darin also keine MIDI- oder Notendaten, die man exportieren
-> könnte – Musik und Geräusche liegen komplett als fertig aufgenommene PCM-Samples
-> vor. Eigene Musik baust du ein, indem du sie als WAV renderst und als Sample
-> einspielst.
+> **About MIDI:** this ROM does **not** use a sequencer such as Nintendo's
+> MusicPlayer2000 (Sappy). So there is no MIDI or note data that could be exported –
+> music and sound effects are all stored as pre-recorded PCM samples. To add your own
+> music, render it as WAV and import it as a sample.
 
-### Missionen & Objekte
-Das Spiel beschreibt Missionen, platzierte Objekte und Ereignisse über benannte
-Datensätze (`i_ambusher16_last1`, `e_notincar_race1`, `brief_failure_bar1`, …).
-Das Studio findet 18 solcher Tabellen über ihre Namenszeiger – unter anderem
-1.081 Instanzen, 798 Briefings, 565 Ereignisse, 337 Fahrzeugeinträge, 228 Startpunkte.
+### Missions & objects
+The game describes missions, placed objects and events through named records
+(`i_ambusher16_last1`, `e_notincar_race1`, `brief_failure_bar1`, …). The studio finds
+18 such tables via their name pointers – among them 1,081 instances, 798 briefings,
+565 events, 337 vehicle entries, 228 start points.
 
-Jedes Feld wird mit seiner Deutung angezeigt (Zahl, Zeiger, verlinkter Text) und
-lässt sich direkt ändern; verlinkte Texte springen in den Text-Editor.
-Ganze Tabellen lassen sich als CSV exportieren.
+Every field is shown with its interpretation (number, pointer, linked text) and can be
+changed directly; linked texts jump to the text editor. Whole tables can be exported
+as CSV.
 
-> **Zum Umfang, ehrlich gesagt:** Die Namen, die Tabellengrenzen und die
-> Satzgröße sind gesichert. Die Bedeutung der einzelnen Zahlenfelder ist es nicht.
-> Das Studio zeigt deshalb jedes Feld mit seiner Deutung an, statt eine Bedeutung
-> zu erfinden. Ebenso lässt sich aus den Rohdaten nicht ableiten, wo genau die
-> logische Satzgrenze liegt – angezeigt wird ein vollständiger Satz ab dem
-> Namenszeiger, die letzten Felder können schon zum nächsten Eintrag gehören.
-> Ändere Werte in kleinen Schritten und teste im Emulator.
+> **Scope, honestly:** the names, table boundaries and record size are confirmed. The
+> meaning of the individual number fields is not. The studio therefore shows every
+> field with its interpretation instead of inventing a meaning. Likewise, the raw data
+> does not reveal exactly where the logical record ends – a full record starting at the
+> name pointer is shown; the last fields may already belong to the next entry. Change
+> values in small steps and test in the emulator.
 
-### Hex / Rohdaten
-Direkter Zugriff auf jede Stelle der ROM, mit Lesezeichen aller bekannten
-Strukturen, Suche nach Hex-Bytes oder Text, Byte-Editor und Import/Export
-beliebiger Bereiche.
+### Hex / raw data
+Direct access to every byte of the ROM, with bookmarks for all known structures, search
+for hex bytes or text, byte editor and import/export of any range.
 
 ---
 
-## Platz in der ROM
+## Space in the ROM
 
-Die Original-ROM ist 16 MB groß und ab `0xFD2F4C` frei – rund 180 KB für
-verschobene Grafiken, Texte und Samples. Reicht das nicht, erweitert
-**ROM & Projekt → Auf 32 MB erweitern** den Adressraum. Emulatoren kommen damit
-immer klar; auf echter Hardware muss das Flash-Modul 32 MB können.
+The original ROM is 16 MB and free from `0xFD2F4C` – about 180 KB for relocated
+graphics, texts and samples. If that is not enough, **ROM & project → Expand to 32 MB**
+enlarges the address space. Emulators always handle this; on real hardware the flash
+cartridge must support 32 MB.
 
-## Wie die ROM lauffähig bleibt
+## How the ROM stays playable
 
-* Komprimiert wird im selben BIOS-RLE-Format wie im Original.
-  Alle 2.485 Originalgrafiken passen unverändert wieder in ihren Platz zurück.
-* Verschobene Daten bekommen ihre Zeiger angepasst; gibt es keinen bekannten
-  Zeiger, bricht der Import mit einer Meldung ab, statt etwas zu überschreiben.
-* Die Kopf-Prüfsumme wird beim Speichern neu berechnet.
-* Ein Import ohne echte Änderung ergibt eine byteidentische ROM.
+* Compression uses the same BIOS-RLE format as the original. All 2,485 original
+  graphics fit back into their slots unchanged.
+* Relocated data get their pointers updated; if no pointer is known, the import stops
+  with a message instead of overwriting anything.
+* The header checksum is recalculated on saving.
+* An import without a real change results in a byte-identical ROM.
 
-## Was geprüft wurde
+## What was tested
 
-Gegen die Original-ROM in diesem Ordner:
+Against the original ROM in this folder:
 
-* Grafiksuche liefert exakt dieselben Ergebnisse wie das ältere Python-Werkzeug
-  (2.303 + 172 Sprites, 10 Vollbilder, 143 Paletten). Die 116 Sprites, für die die
-  alte Suche keine Palette fand (Busse, Feuerwehr, Taxi, Krankenwagen, Kran-Animation),
-  haben jetzt ihre echte Palette – siehe „Sprites“. Gegenprobe: bei allen 2.359 Sprites
-  mit schon bekannter Palette liefert der neue Weg dieselbe.
-* RLE-Kodierung, Kachel↔Bild-Umwandlung und PNG-Schreiben/-Lesen: verlustfreier
-  Rundlauf über alle 2.485 Grafiken.
-* WAV-Export und -Reimport: byte-genauer Rundlauf.
-* Menü-Grafiken: alle 116 Bilder über Kachel-Rückbau geprüft – Pixel identisch,
-  kein Bild wird dabei größer (in Summe sogar 1.952 Byte kleiner). Titelbild mit
-  Änderung geschrieben, verschoben und zurückgelesen.
-* Text kürzen (an Ort und Stelle) und verlängern (verschoben, Zeiger angepasst):
-  geprüft und zurückgelesen.
-* Karte unverändert zurückschreiben: byteidentisch.
-* Objekt- und Zonenlisten gegen die Deskriptoren in der ROM verifiziert.
-* Projektdatei: Änderungen exportiert und wieder eingespielt – identisches Ergebnis.
-* Komplett-Paket: Export mit allen acht Bereichen (3.547 Dateien, 5,9 MB) und
-  unverändert wieder eingespielt → **0 geänderte Bytes**. Danach gezielt je eine
-  Datei pro Bereich verändert (Sprite-, Vollbild-, Menü- und Texturpixel, Kartenzelle
-  samt Kollision und Objektposition, ein kürzerer und ein längerer Text, ein
-  halbiertes Sample, ein Missionsfeld) – alle acht kamen exakt an, alle 2.485
-  Grafiken blieben dekodierbar, Kopf-Prüfsumme gültig.
-* WAV-Rundlauf über **alle** 282 Samples byte-genau (vorher nur stichprobenartig).
-* Schriften: Kachelblatt exportiert und unverändert zurückgespielt – 0 geänderte
-  Bytes bei allen drei Schriften; eine gezielte Pixeländerung kam exakt an.
-* Weltpalette dreifach abgesichert: identisch mit dem Paletten-RAM des Savestates,
-  viermal byteidentisch in der ROM, und die damit gerenderten Texturen zeigen
-  erkennbare Dächer, Pools und Parkflächen statt Rauschen.
+* The graphics scan gives exactly the same results as the older Python tool (2,303 +
+  172 sprites, 10 full screens, 143 palettes). The 116 sprites for which the old scan
+  found no palette (buses, fire engine, taxi, ambulance, crane animation) now have
+  their real palette – see "Sprites". Cross-check: for all 2,359 sprites with an
+  already known palette, the new method gives the same one.
+* RLE encoding, tile↔image conversion and PNG writing/reading: lossless round trip over
+  all 2,485 graphics.
+* WAV export and re-import: byte-exact round trip.
+* Menu graphics: all 116 images checked via tile rebuild – identical pixels, no image
+  grows (in total even 1,952 bytes smaller). Title screen written with a change,
+  relocated and read back.
+* Shortening a text (in place) and lengthening it (moved, pointers updated): tested and
+  read back.
+* Writing a map back unchanged: byte-identical.
+* Object and zone lists verified against the descriptors in the ROM.
+* Project file: changes exported and imported again – identical result.
+* Complete package: export with all eight areas (3,547 files, 5.9 MB) and re-imported
+  unchanged → **0 changed bytes**. Then one file per area changed on purpose (sprite,
+  full-screen, menu and texture pixels, a map cell including collision and object
+  position, a shorter and a longer text, a halved sample, a mission field) – all eight
+  arrived exactly, all 2,485 graphics stayed decodable, header checksum valid.
+* WAV round trip over **all** 282 samples byte-exact (previously only spot checks).
+* Fonts: tile sheet exported and imported unchanged – 0 changed bytes for all three
+  fonts; a targeted pixel change arrived exactly.
+* World palette confirmed three ways: identical to the palette RAM of the savestate,
+  four byte-identical copies in the ROM, and textures rendered with it show recognisable
+  roofs, pools and car parks instead of noise.
+* IPS patch: single byte, long zero and fill runs (RLE), a change exactly at
+  `0x454F46`, 200,000 scattered changes, a real mod (sprite + relocated text) and a ROM
+  expanded to 32 MB (IPS32) – every patch, once applied, gave exactly the edited ROM.
+* Languages: all areas opened in all five languages – no errors; the automatic search
+  for remaining German texts found nothing in the interface, hints and messages. A few
+  composed details (e.g. a tooltip in the tile picker) may still be German.
+* **Camera hack** in the emulator (mGBA, remote-controlled via the debugger): tilt 0
+  gives a byte-identical image to the original; distance 96…250, tilt in both
+  directions, SELECT control and reset work from power-on; watchpoints confirmed that
+  only the hack's own code writes to the RAM block. The ROM created by the studio is
+  byte-identical to the one tested in the emulator.
+* **Ground graphics**: decoded from the level tables and compared with the game
+  picture. Tile set and areas re-imported unchanged → 0 changed bytes. Several
+  overlapping imports on all three islands → every cell of the island matches the
+  expected result. An imported pattern and a road strip painted in the editor appear
+  correctly in the game in the emulator. The complete package transfers changed ground
+  graphics exactly (a second import changes nothing).
+* **3D view**: painting, filling, eyedropper and undo in 3D.
+* **HUD graphics**: all seven elements re-imported unchanged → 0 changed bytes; a
+  repainted weapon icon and money digits appear exactly like that in the game.
+* **Image → city** in the emulator: a JPEG city plan (road grid with a park) over
+  48×44 cells around the starting point – roads with centre line, pavements and kerbs
+  appear in the game, the radar shows the new grid, the district name stays
+  (CHINATOWN). A JPEG photo as ground graphics (9×7 cells, 13 new palette colours, one of
+  them via eyedropper): the game loads the new colours into palette RAM and shows the
+  image. Undo restores the previous state.
+* **Sprite sets**: all 239 sheets re-imported unchanged → 0 changed bytes; one changed
+  pixel in a sheet lands in exactly that sprite; the same sheet as an RGB PNG with
+  colour matching → 0 changes. HUD palette: a changed colour is stored as the correct
+  15-bit value in the ROM.
 
-* IPS-Patch: Einzelbyte, lange Null- und Füllbereiche (RLE), eine Änderung genau
-  bei `0x454F46`, 200.000 verstreute Änderungen, ein echter Mod (Sprite + verschobener
-  Text) und eine auf 32 MB erweiterte ROM (IPS32) – jeder Patch ergab angewendet
-  wieder exakt die bearbeitete ROM.
-* Sprachen: alle Bereiche in allen fünf Sprachen geöffnet – keine Fehler; die
-  automatische Suche nach verbliebenen deutschen Texten fand in Oberfläche,
-  Hinweisen und Meldungen nichts mehr. Vereinzelt können zusammengesetzte
-  Kleinigkeiten (z. B. ein Tooltip in der Kachelauswahl) noch deutsch sein.
-
-* **Kamera-Hack** im Emulator (mGBA, per Debugger ferngesteuert): Neigung 0 ergibt
-  ein bytegleiches Bild wie das Original; Abstand 96…250, Neigung in beide Richtungen,
-  SELECT-Steuerung und Zurücksetzen funktionieren vom Einschalten an; über
-  Wachpunkte bestätigt, dass nur der eigene Code in den RAM-Block schreibt. Die vom
-  Studio erzeugte ROM ist bytegleich mit der im Emulator getesteten.
-* **Bodengrafik**: aus den Level-Tabellen dekodiert und mit dem Spielbild verglichen.
-  Kachelsatz und Ausschnitte unverändert zurückgespielt → 0 geänderte Bytes. Mehrere
-  überlappende Importe auf allen drei Inseln → jede Zelle der Insel stimmt mit dem
-  Erwarteten überein. Ein eingespieltes Muster und ein im Editor gemalter
-  Straßenstreifen erscheinen im Emulator korrekt im Spiel. Komplett-Paket überträgt
-  geänderte Bodengrafik exakt (zweiter Import ändert nichts mehr).
-* **3D-Ansicht**: Malen, Füllen, Pipette und Rückgängig in 3D.
-* **HUD-Grafiken**: alle sieben Elemente unverändert re-importiert → 0 geänderte Bytes;
-  ein umgemaltes Waffen-Icon und umgemalte Geld-Ziffern erscheinen genau so im Spiel.
-
-**Nicht geprüft:** das Verhalten auf echter Hardware. Teste eine gemoddete ROM
-immer erst im Emulator.
+**Not tested:** behaviour on real hardware. Always test a modded ROM in an emulator
+first.
 
 ---
 
-## Bekannte Grenzen
+## Known limitations
 
-* Die Zuordnung Zeichencode → Glyphe steckt im Programmcode, nicht in einer Tabelle.
-  Die Akzentbuchstaben der Schriften sind darum nach Position benannt.
-* Die Bereiche `0x800000–0x8D0000` und `0xEE0000–0xF83880` sind Geometrie- und
-  Zeigerdaten des Gebäude-Renderers, keine Bilder. Als 4bpp- oder 8bpp-Grafik
-  gelesen ergeben sie nur Rauschen.
-* Objekt- und Zonenlisten haben eine feste Länge; Werte sind änderbar, neue
-  Einträge lassen sich nicht anhängen, weil direkt dahinter der Deskriptor steht.
-* Die Bedeutung der Zahlenfelder in den Missionsdatensätzen ist nicht dokumentiert.
-* Das 3D-artige Gebäude-/Blockmodellsystem (ab `0xD50000`) ist nur über den
-  Hex-Editor erreichbar.
-* Übersetzungen: Spielinhalte (Texte aus der ROM, Missions- und Dateinamen) bleiben
-  natürlich, wie sie sind. Die Übersetzungen der Oberfläche sind ohne Akzente
-  geschrieben (wie die deutschen Umlaute als ae/oe/ue) und stammen nicht von
-  Muttersprachlern. Fehlt irgendwo ein Eintrag, erscheint der deutsche Text.
-* Kamera-Hack: Ego-Perspektive ist mit dieser Engine nicht machbar (siehe oben).
-  Autos, Figuren und der Boden bleiben flach; nur 3D-Gebäude kippen bei Neigung.
-* Welt-Kacheln: Mehr als etwa 240 verschiedene Kacheln pro Bildschirm können im
-  Spiel zu falschen Kacheln führen. Ein Bild-Import wird direkt in die ROM geschrieben
-  und leert die Rückgängig-Liste des Karteneditors.
-* Die Bedeutung von Kollision (0/11) ist „Straßennetz“ gegenüber „Häuserblock“
-  (inklusive Gehwegen und Plätzen); wer wo gehen oder fahren darf, regelt das Spiel
-  zusätzlich über andere Daten.
-* Beim Import von Menü-Grafiken ändert sich die Reihenfolge der Kacheln; das ist
-  für das Spiel bedeutungslos, macht einen Byte-Vergleich mit dem Original aber
-  unbrauchbar.
+* The mapping character code → glyph is in the program code, not in a table. The
+  accented letters of the fonts are therefore named by position.
+* The ranges `0x800000–0x8D0000` and `0xEE0000–0xF83880` are geometry and pointer data
+  of the building renderer, not images. Read as 4bpp or 8bpp graphics they only give
+  noise.
+* Object and zone lists have a fixed length; values can be changed, new entries cannot
+  be appended because the descriptor follows directly behind them.
+* The meaning of the number fields in the mission records is not documented.
+* The 3D-like building/block model system (from `0xD50000`) is only reachable via the
+  hex editor.
+* Translations: game content (texts from the ROM, mission and file names) of course
+  stays as it is. The interface translations are written without accents (like the
+  German umlauts as ae/oe/ue) and are not by native speakers. If an entry is missing,
+  the German text appears.
+* Camera hack: a first-person view is not feasible with this engine (see above). Cars,
+  characters and the ground stay flat; only 3D buildings lean when tilting.
+* World tiles: more than about 240 different tiles per screen can lead to wrong tiles in
+  the game. An image import is written directly to the ROM and clears the undo list of
+  the map editor.
+* Image → city does not create building models: the 3D houses of the original and the
+  objects (vehicles, people, pickups) stay where they are.
+* The meaning of collision (0/11) is "road network" versus "building block" (including
+  pavements and squares); who may walk or drive where is additionally controlled by
+  other data of the game.
+* When importing menu graphics the order of the tiles changes; this does not matter to
+  the game but makes a byte comparison with the original useless.
 
-## Aufbau des Ordners
+## Folder structure
 
 ```
-index.html                     Start
+index.html                     start
 css/studio.css
-js/core.js                     Bytes, SHA-1, PNG, ZIP, Inflate, BIOS-RLE, GBA-Kacheln, IPS, ROM-Verwaltung
-js/app.js                      Rahmen, Navigation, Dialoge
-js/i18n.js                     Sprachumschaltung
-data/lang*.js                  Übersetzungen (EN/ES/FR/IT), Schlüssel = deutscher Text
-js/gfx_scan.js                 Sprite- und Vollbildsuche
-js/tab_bulk.js                 Komplett-Paket (ZIP-Export/-Import)
-js/tab_menu.js                 Menü-Grafiken (Kacheln + Tilemap)
-js/tab_font.js                 Schriften
-js/tab_hud.js                  HUD-Grafiken
-js/tab_camera.js               Kamera-Hack (Oberflaeche, Einbau, Entfernen)
-data/camhack.js                Maschinencode des Kamera-Hacks
-js/map_ground.js               Bodengrafik der Inseln (Lesen, Kachel-Import/-Export)
-js/map3d.js                    3D-Ansicht des Karten-Editors (WebGL)
-js/tab_*.js                    die uebrigen Bereiche
-data/tiles1..3.js              Kachelvorschau und Kartenadressen der drei Inseln
+js/core.js                     bytes, SHA-1, PNG, ZIP, inflate, BIOS-RLE, GBA tiles, IPS, ROM handling
+js/app.js                      frame, navigation, dialogs
+js/i18n.js                     language switching
+data/lang*.js                  translations (EN/ES/FR/IT), key = German text
+js/gfx_scan.js                 sprite and full-screen scan
+js/tab_bulk.js                 complete package (ZIP export/import)
+js/tab_menu.js                 menu graphics (tiles + tilemap)
+js/tab_font.js                 fonts
+js/tab_hud.js                  HUD graphics
+js/tab_camera.js               camera hack (interface, install, removal)
+data/camhack.js                machine code of the camera hack
+js/map_ground.js               ground graphics of the islands (reading, tile import/export)
+js/map_image.js                image → city (city plan and ground graphics from images)
+js/map3d.js                    3D view of the map editor (WebGL)
+js/tab_*.js                    the remaining areas
+data/tiles1..3.js              tile preview and map addresses of the three islands
 ```
 
-Alles ist reines JavaScript ohne Abhängigkeiten und ohne Netzwerkzugriff.
+Everything is plain JavaScript without dependencies and without network access.
 
-### Übersetzungen ergänzen
+### Adding translations
 
-Schlüssel ist immer der deutsche Text, wie er im Programm steht. Zahlen, Hex-Werte,
-Dateinamen und Namen in Anführungszeichen werden vorher durch `{0}`, `{1}` … ersetzt,
-damit z. B. „3 Texturen exportiert.“ und „640 Texturen exportiert.“ denselben Eintrag
-`'{0} Texturen exportiert.'` nutzen. Fehlende Einträge findest du in der
-Browser-Konsole mit `GTAS.i18nCollect = true`, danach etwas bedienen und
-`GTAS.i18nReport()` aufrufen.
-
+The key is always the German text as it appears in the program. Numbers, hex values,
+file names and names in quotes are replaced by `{0}`, `{1}` … beforehand, so that e.g.
+"3 Texturen exportiert." and "640 Texturen exportiert." use the same entry
+`'{0} Texturen exportiert.'`. You can find missing entries in the browser console with
+`GTAS.i18nCollect = true`, then use the studio for a while and call `GTAS.i18nReport()`.
