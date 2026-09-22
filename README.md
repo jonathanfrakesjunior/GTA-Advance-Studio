@@ -196,15 +196,6 @@ The modded ROM should always be tested in an emulator before use on real hardwar
 
 Use your own legally obtained copy of the game. The original ROM is never modified in memory; changes are written only when saving a project or creating a new ROM.
 
-## License
-
-*Add your project's license here.*
-
-For example:
-
-```text
-MIT License
-```
 
 or replace this section with the license terms applicable to the project.
 
