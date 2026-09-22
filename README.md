@@ -179,7 +179,7 @@ The project has been tested extensively against the original ROM, including:
 
 The modded ROM should always be tested in an emulator before use on real hardware. Real-hardware behavior has not been tested.
 
-## Known Limitations
+## Known Bugs
 
 * 116 sprites do not have a clearly identifiable palette.
 * Character-code-to-glyph mapping is implemented in program code rather than stored in a ROM table.
